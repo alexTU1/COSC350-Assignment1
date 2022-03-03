@@ -38,7 +38,7 @@ class TCPKRClient22 {
 
         //modifiedSentence2 = inFromServer.readLine();
 
-        System.out.println("FROM SERVER: " + modifiedSentence);
+        System.out.println("FROM SERVER: \n" + modifiedSentence);
         //System.out.println("FROM SERVER: " + modifiedSentence2);
         
         System.out.println("End Time: " + java.time.LocalTime.now());

@@ -23,7 +23,7 @@ class TCPKRServer22 {
            clientSentence = inFromClient.readLine();
            
            System.out.println("String received\n" + clientSentence);
-           
+           int i = 0;
            
 
            String inputLine;
@@ -33,15 +33,20 @@ class TCPKRServer22 {
            con.setRequestProperty("User-Agent","Mozilla/5.0");
            BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream())); 
-                        while ((inputLine = in.readLine()) != null) 
-                           System.out.println(inputLine);   
-
            System.out.println("W1 request sent at: " + java.time.LocalTime.now());
+                        while ((inputLine = in.readLine()) != null) {
+                          
+                          String data[] = new data[1024];
+                          data[i] = inputLine;
+                          i++ 
+                        }
+
+           
 
            System.out.println("W1 response received at: " + java.time.LocalTime.now());
            capitalizedSentence = clientSentence.toUpperCase() + '\n';
 
-           outToClient.writeBytes(capitalizedSentence);
+           outToClient.writeBytes(data);
         }
       }
     }
